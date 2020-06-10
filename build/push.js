@@ -4,15 +4,12 @@ var shell = require("shelljs");
 var exec = shell.exec;
 var echo = shell.echo;
 
-// console.log(exec('git add .'))
-// console.log(exec(`git commit -am "${name}"`))
-// console.log(exec('git push'))
 if (exec('git add .').code !== 0) {
-  echo('Error: Git add failed');
+  echo('-e',"\033[0;31m Git add failed \033[0m");
   shell.exit(1);
 }
 if (exec(`git commit -am "${name}"`).code !== 0) {
-  echo('Error: Git commit failed');
+  echo('-e',"\033[0;31m Git commit failed \033[0m");
   shell.exit(1);
 }
 if (exec('git push').code !== 0) {
@@ -24,10 +21,10 @@ if (exec('git push').code !== 0) {
       shell.exit(1);
     }
   }else{
-    echo('Error: Git push failed');
+    echo('-e',"\033[0;31m Git push failed \033[0m");
     shell.exit(1);
   }
 }
 
-//绿色字5
+//绿色字
 echo('-e',"\033[0;32m git push success \033[0m"+`备注:${name}`);
