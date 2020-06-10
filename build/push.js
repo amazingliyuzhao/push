@@ -4,9 +4,9 @@ var shell = require("shelljs");
 var exec = shell.exec;
 var echo = shell.echo;
 
-console.log(exec('git add .'))
-console.log(exec(`git commit -am "${name}"`))
-console.log(exec('git push'))
+// console.log(exec('git add .'))
+// console.log(exec(`git commit -am "${name}"`))
+// console.log(exec('git push'))
 if (exec('git add .').code !== 0) {
   echo('Error: Git add failed');
   shell.exit(1);
