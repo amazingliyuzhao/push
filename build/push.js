@@ -29,5 +29,5 @@ if (exec('git push').code !== 0) {
   }
 }
 
-//绿色字体3
+//绿色字4
 echo('-e',"\033[0;32m git push success \033[0m"+`备注:${name}`);
