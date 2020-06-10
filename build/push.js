@@ -9,6 +9,7 @@ if (exec('git add .').code !== 0) {
   shell.exit(1);
 }
 if (exec(`git commit -am "${name}"`).code !== 0) {
+  console.log(exec(`git commit -am "${name}"`))
   echo('-e',"\033[0;31m Git commit failed \033[0m");
   shell.exit(1);
 }
