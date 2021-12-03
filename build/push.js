@@ -9,7 +9,6 @@ if (exec('git add .').code !== 0) {
   shell.exit(1);
 }
 
-console.log(exec(`git commit -am "${name}"`))
 if (exec(`git commit -am "${name}"`).code !== 0) {
   echo('Error: Git commit failed');
   shell.exit(1);
