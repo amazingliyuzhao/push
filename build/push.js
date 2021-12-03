@@ -18,12 +18,11 @@ if (exec('git push').code !== 0) {
     let newAfter = _push.stderr.match(/git.*/)
     echo('-e',"\033[0;33m 新分支，即将执行 \033[0m"+`${newAfter}`+"\033[0;33m 在远端建立新分支 \033[0m");
     // 推送到新分支
-    console.log(exec(`git push --set-upstream origin ${newAfter}`))
-    exec(`git push --set-upstream origin ${newAfter}`)
-    // if(exec(`git push --set-upstream origin ${newAfter}`).code !== 0){
-    //   echo('-e',"\033[0;33m Error: Git push failed \033[0m");
-    //   shell.exit(1);
-    // }
+    console.log(_push)
+    if(exec(`git push --set-upstream origin ${newAfter}`).code !== 0){
+      echo('-e',"\033[0;33m Error: Git push failed \033[0m");
+      shell.exit(1);
+    }
     shell.exit(1);
   }else{
     echo('-e',"\033[0;33m Error: Git push failed \033[0m");
