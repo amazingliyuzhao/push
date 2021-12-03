@@ -8,7 +8,6 @@ if (exec('git add .').code !== 0) {
   echo('Error: Git add failed');
   shell.exit(1);
 }
-
 if (exec(`git commit -am "${name}"`).code !== 0) {
   echo('Error: Git commit failed');
   shell.exit(1);
@@ -18,7 +17,7 @@ if (exec('git push').code !== 0) {
   if(_push.code === 128){
     let newAfter = _push.stderr.match(/git.*/)
     echo('-e',"\033[0;33m 新分支，请执行 \033[0m"+`${newAfter}`+"\033[0;33m 在远端建立新分支 \033[0m");
-    新分支是否执行
+    // 新分支是否执行
     shell.exit(1);
   }else{
     echo('Error: Git push failed');
